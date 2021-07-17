@@ -1,0 +1,50 @@
+﻿@model List<MountlySalesVM>
+@{
+    ViewData["Title"] = "Sales";
+    Layout = "~/Areas/Accounting/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Oluşturulan Siparişler</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Satış Tarihi</th>
+                        <th>TCKN</th>
+                        <th>Müşteri İsmi</th>
+                        <th>Oluşturan Personel</th>
+                        <th>Satış Tutarı</th>
+
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Satış Tarihi</th>
+                        <th>TCKN</th>
+                        <th>Müşteri İsmi</th>
+                        <th>Oluşturan Personel</th>
+                        <th>Satış Tutarı</th>
+
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (MountlySalesVM item in Model)
+                    {
+                        <tr>
+                            <td>@item.OrderDate</td>
+                            <td>@item.TCKN</td>
+                            <td>@item.CustomerName</td>
+                            <td>@item.EmployeUserName</td>
+                            <td>@item.SalesTotal</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
